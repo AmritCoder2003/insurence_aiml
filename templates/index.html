@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Charges Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 50%;
+            margin: 100px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="submit"] {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        input[type="submit"] {
+            background-color: #28a745;
+            color: #fff;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Insurance Charges Prediction</h2>
+        <form action="/predict" method="post">
+            <label for="age">Age:</label>
+            <input type="number" name="age" id="age" required>
+
+            <label for="sex">Sex (0: Male, 1: Female):</label>
+            <input type="number" name="sex" id="sex" required>
+
+            <label for="bmi">BMI:</label>
+            <input type="text" name="bmi" id="bmi" required>
+
+            <label for="children">Children:</label>
+            <input type="number" name="children" id="children" required>
+
+            <label for="smoker">Smoker (0: Yes, 1: No):</label>
+            <input type="number" name="smoker" id="smoker" required>
+
+            <label for="region">Region (0: Southeast, 1: Southwest, 2: Northeast, 3: Northwest):</label>
+            <input type="number" name="region" id="region" required>
+
+            <input type="submit" value="Predict">
+        </form>
+        {% if prediction_text %}
+        <h3>{{ prediction_text }}</h3>
+        {% endif %}
+    </div>
+</body>
+</html>
